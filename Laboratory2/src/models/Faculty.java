@@ -5,14 +5,14 @@ import java.util.List;
 public class Faculty {
     private String name;
     private String abbrev;
-    private StudyField field; // changed from String to StudyField
-    private List<Student> students; // added
+    private StudyField field;
+    private List<Student> students;
 
     public Faculty(String name, String abbrev, StudyField field, List<Student> students) {
         this.name = name;
         this.abbrev = abbrev;
         this.field = field;
-        this.students = students; // added
+        this.students = students; 
     }
 
 
