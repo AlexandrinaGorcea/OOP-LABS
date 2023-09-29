@@ -12,6 +12,7 @@ public class University {
         faculties.add(faculty);
     }
 
+    
     @Override
     public String toString() {
         StringBuilder text = new StringBuilder();
