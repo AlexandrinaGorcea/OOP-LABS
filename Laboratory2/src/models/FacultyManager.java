@@ -1,4 +1,4 @@
-package models;
+package Laboratory2.models;
 
 import java.util.ArrayList;
 import java.util.List;

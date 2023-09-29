@@ -1,4 +1,4 @@
-package models;
+package Laboratory2.models;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
