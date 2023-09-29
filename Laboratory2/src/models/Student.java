@@ -9,6 +9,7 @@ public class Student {
     private String email;
     private Date enrollmentDate;
     private Date dateOfBirth;
+    private String status;
 
     public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth) {
         this.firstName = firstName;
@@ -16,6 +17,7 @@ public class Student {
         this.email = email;
         this.enrollmentDate = enrollmentDate;
         this.dateOfBirth = dateOfBirth;
+        this.status = "Enrolled";
     }
 
     public String getFirstName() {
@@ -56,6 +58,14 @@ public class Student {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public long getYearsOfStudy() {

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.util.Calendar;
 
 public class FacultyManager {
     private String universityName = "Technical University of Moldova";
@@ -40,7 +41,6 @@ public class FacultyManager {
         }
     }
 
-
     public void addFaculty(Faculty faculty) {
         faculties.add(faculty);
     }
@@ -66,6 +66,11 @@ public class FacultyManager {
             return;
         }
 
+        // Check if the faculty's list of students is not null
+        if (faculty.getStudents() == null) {
+            faculty.setStudents(new ArrayList<>());
+        }
+
         // Create the student
         Student student = new Student(studentName);
 
@@ -84,8 +89,9 @@ public class FacultyManager {
         // Graduate students who have been enrolled for four years
         List<Student> graduatedStudents = new ArrayList<>();
         for (Student student : faculty.getStudents()) {
-            if (student.getYearsOfStudy() >= 4) {
+            if (getYearsOfStudy(student.getEnrollmentDate()) >= 4) {
                 graduatedStudents.add(student);
+                student.setStatus("Graduated"); // assuming Student class has a setStatus method
             }
         }
 
@@ -96,7 +102,7 @@ public class FacultyManager {
         for (Faculty faculty : faculties) {
             System.out.println("Faculty: " + faculty.getName());
             for (Student student : faculty.getStudents()) {
-                if (student.getYearsOfStudy() < 4) {
+                if (getYearsOfStudy(student.getEnrollmentDate()) < 4) {
                     System.out.println("Student: " + student.getFirstName() + " " + student.getLastName() + ", Email: " + student.getEmail());
                 }
             }
@@ -107,7 +113,7 @@ public class FacultyManager {
         for (Faculty faculty : faculties) {
             System.out.println("Faculty: " + faculty.getName());
             for (Student student : faculty.getStudents()) {
-                if (student.getYearsOfStudy() >= 4) {
+                if (getYearsOfStudy(student.getEnrollmentDate()) >= 4) {
                     System.out.println("Graduate: " + student.getFirstName() + " " + student.getLastName() + ", Email: " + student.getEmail());
                 }
             }
@@ -116,5 +122,12 @@ public class FacultyManager {
 
     public boolean studentBelongsToFaculty(Student student, Faculty faculty) {
         return faculty.getStudents().contains(student);
+    }
+
+    private int getYearsOfStudy(Date enrollmentDate) {
+        Calendar now = Calendar.getInstance();
+        Calendar enrollment = Calendar.getInstance();
+        enrollment.setTime(enrollmentDate);
+        return now.get(Calendar.YEAR) - enrollment.get(Calendar.YEAR);
     }
 }
