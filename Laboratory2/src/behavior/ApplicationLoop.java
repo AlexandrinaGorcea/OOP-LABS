@@ -2,7 +2,7 @@ package Laboratory2.behavior;
 
 import Laboratory2.models.Faculty;
 import Laboratory2.models.University;
-import models.FacultyManager;
+import Laboratory2.models.FacultyManager;
 
 import java.util.Scanner;
 
