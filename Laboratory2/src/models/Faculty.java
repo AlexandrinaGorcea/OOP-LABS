@@ -12,9 +12,12 @@ public class Faculty {
         this.name = name;
         this.abbrev = abbrev;
         this.field = field;
-        this.students = students; 
+        this.students = students;
     }
 
+    public String getName() {
+        return name;
+    }
 
     public List<Student> getStudents() {
         return students;

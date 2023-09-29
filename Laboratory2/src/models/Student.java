@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Student {
     private String firstName;
@@ -55,5 +56,11 @@ public class Student {
 
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public long getYearsOfStudy() {
+        long diffInMillies = Math.abs(new Date().getTime() - enrollmentDate.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+        return diff / 365;
     }
 }
