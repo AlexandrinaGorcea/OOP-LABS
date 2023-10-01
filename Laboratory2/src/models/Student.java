@@ -73,4 +73,9 @@ public class Student {
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return diff / 365;
     }
+    @Override
+    public String toString() {
+        return "Faculty: " + faculty.getAbbrev() + ", Student Name: " + name;
+    }
+
 }

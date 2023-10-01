@@ -35,6 +35,24 @@ public class Faculty {
         this.field = field;
     }
 
+    public void displayEnrolledStudents() {
+        System.out.println("Enrolled students in " + name + " (" + abbrev + "):");
+        for (Student student : students) {
+            if ("Enrolled".equals(student.getStatus())) {
+                System.out.println(student.toString());
+            }
+        }
+    }
+
+    public void displayGraduates() {
+        System.out.println("Graduates from " + name + " (" + abbrev + "):");
+        for (Student student : students) {
+            if ("Graduated".equals(student.getStatus())) {
+                System.out.println(student.toString());
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return name + " - " + abbrev + " - " + field;
