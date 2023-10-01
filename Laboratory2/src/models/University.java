@@ -8,9 +8,11 @@ public class University {
 
     private List<Faculty> faculties = new ArrayList<>();
 
+
     public void addFaculty(Faculty faculty) {
         faculties.add(faculty);
     }
+
 
     
     @Override
