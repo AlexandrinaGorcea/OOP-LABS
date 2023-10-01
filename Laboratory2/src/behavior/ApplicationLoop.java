@@ -1,4 +1,4 @@
-package Laboratory2.behavior;
+package behavior;
 
 import Laboratory2.models.Faculty;
 import Laboratory2.models.University;

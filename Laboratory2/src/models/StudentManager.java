@@ -1,4 +1,4 @@
-package Laboratory2.models;
+package models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.Calendar;
+
 
 public class StudentManager {
     private SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");

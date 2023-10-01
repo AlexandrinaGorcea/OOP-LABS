@@ -1,10 +1,12 @@
-package Laboratory2.models;
+package models;
+import Laboratory2.models.Faculty;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FacultyManager {
-    private List<Faculty> faculties = new ArrayList<>();
+    private List<Laboratory2.models.Faculty> faculties = new ArrayList<>();
 
     public FacultyManager() {
         faculties.add(new Faculty("MECHANICAL ENGINEERING", "ME", new StudyField(), new ArrayList<>()));

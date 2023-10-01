@@ -1,11 +1,12 @@
-package Laboratory2.models;
+package models;
 
+import Laboratory2.models.Student;
 import java.util.List;
 
 public class Faculty {
     private String name;
     private String abbrev;
-    private StudyField field;
+    public StudyField field;
     private List<Student> students;
 
     public Faculty(String name, String abbrev, StudyField field, List<Student> students) {
@@ -51,6 +52,15 @@ public class Faculty {
                 System.out.println(student.toString());
             }
         }
+    }
+
+    public boolean isStudentInFaculty(String email) {
+        for (Student student : students) {
+            if (email.equals(student.getEmail())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
