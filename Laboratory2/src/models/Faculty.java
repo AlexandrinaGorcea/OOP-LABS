@@ -1,18 +1,18 @@
 package models;
 
-import Laboratory2.models.Student;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty {
     private String name;
     private String abbrev;
-    public StudyField field;
+    private StudyField studyField;
     private List<Student> students;
 
-    public Faculty(String name, String abbrev, StudyField field, List<Student> students) {
+    public Faculty(String name, String abbrev, StudyField studyField, List<Student> students) {
         this.name = name;
         this.abbrev = abbrev;
-        this.field = field;
+        this.studyField = studyField;
         this.students = students;
     }
 
@@ -28,30 +28,32 @@ public class Faculty {
         this.students = students;
     }
 
-    public StudyField getField() {
-        return field;
+    public StudyField getStudyField() {
+        return studyField;
     }
 
-    public void setField(StudyField field) {
-        this.field = field;
+    public void setStudyField(StudyField studyField) {
+        this.studyField = studyField;
     }
 
-    public void displayEnrolledStudents() {
-        System.out.println("Enrolled students in " + name + " (" + abbrev + "):");
+    public List<Student> getEnrolledStudents() {
+        List<Student> enrolledStudents = new ArrayList<>();
         for (Student student : students) {
             if ("Enrolled".equals(student.getStatus())) {
-                System.out.println(student.toString());
+                enrolledStudents.add(student);
             }
         }
+        return enrolledStudents;
     }
 
-    public void displayGraduates() {
-        System.out.println("Graduates from " + name + " (" + abbrev + "):");
+    public List<Student> getGraduates() {
+        List<Student> graduates = new ArrayList<>();
         for (Student student : students) {
             if ("Graduated".equals(student.getStatus())) {
-                System.out.println(student.toString());
+                graduates.add(student);
             }
         }
+        return graduates;
     }
 
     public boolean isStudentInFaculty(String email) {
@@ -65,6 +67,6 @@ public class Faculty {
 
     @Override
     public String toString() {
-        return name + " - " + abbrev + " - " + field;
+        return name + " - " + abbrev + " - " + studyField.getName();
     }
 }

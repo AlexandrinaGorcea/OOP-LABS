@@ -1,26 +1,30 @@
 package models;
-import Laboratory2.models.Faculty;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FacultyManager {
-    private List<Laboratory2.models.Faculty> faculties = new ArrayList<>();
+    private List<Faculty> faculties = new ArrayList<>();
 
     public FacultyManager() {
-        faculties.add(new Faculty("MECHANICAL ENGINEERING", "ME", new StudyField(), new ArrayList<>()));
-        faculties.add(new Faculty("SOFTWARE ENGINEERING", "SE", new StudyField(), new ArrayList<>()));
-        faculties.add(new Faculty("FOOD TECHNOLOGY", "FT", new StudyField(), new ArrayList<>()));
-        faculties.add(new Faculty("URBANISM ARCHITECTURE", "UA", new StudyField(), new ArrayList<>()));
-        faculties.add(new Faculty("VETERINARY MEDICINE", "VM", new StudyField(), new ArrayList<>()));
+        faculties.add(new Faculty("MECHANICAL ENGINEERING", "ME", new StudyField("Mechanical Engineering"), new ArrayList<>()));
+        faculties.add(new Faculty("SOFTWARE ENGINEERING", "SE", new StudyField("Software Engineering"), new ArrayList<>()));
+        faculties.add(new Faculty("FOOD TECHNOLOGY", "FT", new StudyField("Food Technology"), new ArrayList<>()));
+        faculties.add(new Faculty("URBANISM ARCHITECTURE", "UA", new StudyField("Urbanism Architecture"), new ArrayList<>()));
+        faculties.add(new Faculty("VETERINARY MEDICINE", "VM", new StudyField("Veterinary Medicine"), new ArrayList<>()));
     }
 
     public void addFaculty(Faculty faculty) {
+        if (faculty == null) {
+            throw new IllegalArgumentException("Faculty cannot be null.");
+        }
         faculties.add(faculty);
     }
 
     public void removeFaculty(Faculty faculty) {
+        if (faculty == null) {
+            throw new IllegalArgumentException("Faculty cannot be null.");
+        }
         faculties.remove(faculty);
     }
 
@@ -30,6 +34,6 @@ public class FacultyManager {
                 return faculty;
             }
         }
-        return null;
+        throw new IllegalArgumentException("No faculty found with name: " + name);
     }
 }

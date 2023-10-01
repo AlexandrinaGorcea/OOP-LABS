@@ -25,6 +25,7 @@ public class StudentManager {
         }
     }
 
+
     public void createAndAssignStudent(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String facultyName, FacultyManager facultyManager) {
         Faculty faculty = facultyManager.findFacultyByName(facultyName);
         if (faculty == null) {

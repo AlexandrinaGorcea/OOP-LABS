@@ -87,9 +87,13 @@ public class ApplicationLoop {
         switch (commands[1]) {
             case "create":
                 // Create a student
-                String studentName = commandsList[2];
-                String facultyName = commandsList[3];
-                facultyManager.createAndAssignStudent(studentName, facultyName);
+                String firstName = commandsList[2];
+                String lastName = commandsList[3];
+                String email = commandsList[4];
+                Date enrollmentDate = new SimpleDateFormat("dd.MM.yyyy").parse(commandsList[5]);
+                Date dateOfBirth = new SimpleDateFormat("dd.MM.yyyy").parse(commandsList[6]);
+                String facultyName = commandsList[7];
+                facultyManager.createAndAssignStudent(firstName, lastName, email, enrollmentDate, dateOfBirth, facultyName);
                 break;
             case "graduate":
                 // Graduate a student

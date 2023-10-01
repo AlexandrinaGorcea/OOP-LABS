@@ -75,7 +75,7 @@ public class Student {
     }
     @Override
     public String toString() {
-        return "Faculty: " + faculty.getAbbrev() + ", Student Name: " + name;
+        return "Student Name: " + firstName + " " + lastName + ", Email: " + email;
     }
 
 }
