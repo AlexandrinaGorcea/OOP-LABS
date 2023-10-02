@@ -59,6 +59,16 @@ public class StudentManager {
         faculty.getStudents().removeAll(graduatedStudents);
     }
 
+    public List<Student> getGraduates() {
+        List<Student> graduates = new ArrayList<>();
+        for (Student student : students) {
+            if (student.isGraduated()) {
+                graduates.add(student);
+            }
+        }
+        return graduates;
+    }
+
     private int getYearsOfStudy(Date enrollmentDate) {
         Calendar now = Calendar.getInstance();
         Calendar enrollment = Calendar.getInstance();

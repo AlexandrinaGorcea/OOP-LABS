@@ -1,6 +1,6 @@
 package Laboratory2;
 
-import Laboratory2.behavior.ApplicationLoop;
+import behavior.ApplicationLoop;
 
 public class Main {
     public static void main(String[] args) {

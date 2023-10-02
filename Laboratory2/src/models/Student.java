@@ -73,9 +73,13 @@ public class Student {
         long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
         return diff / 365;
     }
+
+    public boolean isGraduated() {
+        return "Graduated".equals(status);
+    }
+
     @Override
     public String toString() {
         return "Student Name: " + firstName + " " + lastName + ", Email: " + email;
     }
-
 }

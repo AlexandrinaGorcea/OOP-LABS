@@ -36,24 +36,22 @@ public class Faculty {
         this.studyField = studyField;
     }
 
-    public List<Student> getEnrolledStudents() {
-        List<Student> enrolledStudents = new ArrayList<>();
+    public List<Student> getStudentsByStatus(String status) {
+        List<Student> studentsByStatus = new ArrayList<>();
         for (Student student : students) {
-            if ("Enrolled".equals(student.getStatus())) {
-                enrolledStudents.add(student);
+            if (status.equals(student.getStatus())) {
+                studentsByStatus.add(student);
             }
         }
-        return enrolledStudents;
+        return studentsByStatus;
+    }
+
+    public List<Student> getEnrolledStudents() {
+        return getStudentsByStatus("Enrolled");
     }
 
     public List<Student> getGraduates() {
-        List<Student> graduates = new ArrayList<>();
-        for (Student student : students) {
-            if ("Graduated".equals(student.getStatus())) {
-                graduates.add(student);
-            }
-        }
-        return graduates;
+        return getStudentsByStatus("Graduated");
     }
 
     public boolean isStudentInFaculty(String email) {

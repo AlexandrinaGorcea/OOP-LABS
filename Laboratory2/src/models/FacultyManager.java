@@ -36,4 +36,17 @@ public class FacultyManager {
         }
         throw new IllegalArgumentException("No faculty found with name: " + name);
     }
+    public List<Faculty> getFacultiesByField(String studyFieldName) {
+        List<Faculty> facultiesByField = new ArrayList<>();
+        for (Faculty faculty : faculties) {
+            if (faculty.getStudyField().getName().equals(studyFieldName)) {
+                facultiesByField.add(faculty);
+            }
+        }
+        return facultiesByField;
+    }
+
+    public List<Faculty> getAllFaculties() {
+        return faculties;
+    }
 }
