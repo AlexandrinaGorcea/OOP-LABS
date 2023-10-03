@@ -35,7 +35,7 @@ public class ApplicationLoop {
         while (!this.command.equals("q")) {
             this.command = takeUserInput();
 
-            String[] commandsList = this.command.split("/");
+            String[] commandsList = this.command.split(" ");
 
             switch (commandsList[0]) {
                 case "f":

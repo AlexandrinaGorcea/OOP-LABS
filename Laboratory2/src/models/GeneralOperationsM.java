@@ -20,9 +20,8 @@ public class GeneralOperationsM {
         return faculties;
     }
 
-
     public Faculty findStudentFaculty(String studentId) {
-        for (Faculty faculty : facultyManager.getAllFaculties()) {
+        for (Faculty faculty : facultyManager.getFaculties()) {
             for (Student student : faculty.getStudents()) {
                 if (student.getEmail().equals(studentId)) {
                     return faculty;
@@ -31,4 +30,5 @@ public class GeneralOperationsM {
         }
         return null; // return null if no matching student is found
     }
+
 }

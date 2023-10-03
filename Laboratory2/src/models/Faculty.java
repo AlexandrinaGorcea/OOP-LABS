@@ -62,9 +62,26 @@ public class Faculty {
         }
         return false;
     }
+    public void addStudent(Student newStudent) {
+        // Check if the students list is null
+        if (this.students == null) {
+            // If it's null, initialize it
+            this.students = new ArrayList<>();
+        }
+
+        // Add the new student to the list
+        this.students.add(newStudent);
+    }
+
+    public Faculty(String name) {
+        this.name = name;
+        this.students = new ArrayList<>();
+    }
 
     @Override
     public String toString() {
         return name + " - " + abbrev + " - " + studyField.getName();
     }
+
+
 }

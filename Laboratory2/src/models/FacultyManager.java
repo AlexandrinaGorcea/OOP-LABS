@@ -6,6 +6,10 @@ import java.util.List;
 public class FacultyManager {
     private List<Faculty> faculties = new ArrayList<>();
 
+    public List<Faculty> getFaculties() {
+        return faculties;
+    }
+
     public FacultyManager() {
         faculties.add(new Faculty("MECHANICAL ENGINEERING", "ME", new StudyField("Mechanical Engineering"), new ArrayList<>()));
         faculties.add(new Faculty("SOFTWARE ENGINEERING", "SE", new StudyField("Software Engineering"), new ArrayList<>()));
@@ -36,6 +40,7 @@ public class FacultyManager {
         }
         throw new IllegalArgumentException("No faculty found with name: " + name);
     }
+
     public List<Faculty> getFacultiesByField(String studyFieldName) {
         List<Faculty> facultiesByField = new ArrayList<>();
         for (Faculty faculty : faculties) {
@@ -46,7 +51,9 @@ public class FacultyManager {
         return facultiesByField;
     }
 
-    public List<Faculty> getAllFaculties() {
-        return faculties;
+    public void displayAllFaculties() {
+        for (Faculty faculty : faculties) {
+            System.out.println(faculty.getName());
+        }
     }
 }

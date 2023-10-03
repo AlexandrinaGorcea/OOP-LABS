@@ -25,20 +25,21 @@ public class StudentManager {
         }
     }
 
-
     public void createAndAssignStudent(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String facultyName, FacultyManager facultyManager) {
+        // Check if the faculty exists
         Faculty faculty = facultyManager.findFacultyByName(facultyName);
         if (faculty == null) {
-            System.out.println("Faculty not found.");
+            // If the faculty does not exist, print an error message and return
+            System.out.println("Error: No faculty found with name: " + facultyName);
             return;
         }
 
-        if (faculty.getStudents() == null) {
-            faculty.setStudents(new ArrayList<>());
-        }
 
-        Student student = new Student(firstName, lastName, email, enrollmentDate, dateOfBirth);
-        faculty.getStudents().add(student);
+        // If the faculty exists, create the student and assign them to the faculty
+        Student newStudent = new Student(firstName, lastName, email, enrollmentDate, dateOfBirth);
+        faculty.addStudent(newStudent);
+        students.add(newStudent);
+        System.out.println("Added student: " + firstName + " " + lastName);
     }
 
     public void graduateStudents(String facultyName, FacultyManager facultyManager) {
