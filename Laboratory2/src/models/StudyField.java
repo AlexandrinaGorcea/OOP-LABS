@@ -1,22 +1,17 @@
 package models;
 
-public class StudyField {
-    private String name;
-
-    public StudyField(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return name;
+public enum StudyField {
+    MECHANICAL_ENGINEERING,
+    SOFTWARE_ENGINEERING,
+    FOOD_TECHNOLOGY,
+    URBANISM_ARCHITECTURE,
+    VETERINARY_MEDICINE;
+    public static boolean validation(String field) {
+        for (StudyField studyField : StudyField.values()) {
+            if (studyField.name().equals(field)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

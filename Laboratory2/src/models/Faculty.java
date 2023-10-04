@@ -1,87 +1,52 @@
 package models;
 
+import models.StudyField;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Faculty {
-    private String name;
-    private String abbrev;
-    private StudyField studyField;
+    private final String name;
+    private final String abbreviation;
     private List<Student> students;
+    private final StudyField studyField;
+    private static final List<Faculty> facultyList = new ArrayList<>();
 
-    public Faculty(String name, String abbrev, StudyField studyField, List<Student> students) {
+
+    public Faculty(String name, String abbreviation, StudyField studyField) {
         this.name = name;
-        this.abbrev = abbrev;
+        this.abbreviation = abbreviation;
         this.studyField = studyField;
-        this.students = students;
+        this.students = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public String getAbbreviation() {
+        return abbreviation;
     }
 
     public StudyField getStudyField() {
         return studyField;
     }
 
-    public void setStudyField(StudyField studyField) {
-        this.studyField = studyField;
+    public static List<Faculty> getFacultyList() {
+        return facultyList;
     }
-
-    public List<Student> getStudentsByStatus(String status) {
-        List<Student> studentsByStatus = new ArrayList<>();
-        for (Student student : students) {
-            if (status.equals(student.getStatus())) {
-                studentsByStatus.add(student);
+    public static void addFaculty(Faculty faculty) {
+        facultyList.add(faculty);
+    }
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+    public static Faculty findFacultyByAbbreviation(List<Faculty> faculties, String abbreviation) {
+        for (Faculty faculty : faculties) {
+            if (faculty.getAbbreviation().equals(abbreviation)) {
+                return faculty;
             }
         }
-        return studentsByStatus;
+        return null;
     }
-
-    public List<Student> getEnrolledStudents() {
-        return getStudentsByStatus("Enrolled");
-    }
-
-    public List<Student> getGraduates() {
-        return getStudentsByStatus("Graduated");
-    }
-
-    public boolean isStudentInFaculty(String email) {
-        for (Student student : students) {
-            if (email.equals(student.getEmail())) {
-                return true;
-            }
-        }
-        return false;
-    }
-    public void addStudent(Student newStudent) {
-        // Check if the students list is null
-        if (this.students == null) {
-            // If it's null, initialize it
-            this.students = new ArrayList<>();
-        }
-
-        // Add the new student to the list
-        this.students.add(newStudent);
-    }
-
-    public Faculty(String name) {
-        this.name = name;
-        this.students = new ArrayList<>();
-    }
-
-    @Override
-    public String toString() {
-        return name + " - " + abbrev + " - " + studyField.getName();
-    }
-
-
 }
