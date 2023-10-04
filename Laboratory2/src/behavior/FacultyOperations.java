@@ -14,7 +14,7 @@ public class FacultyOperations {
             String[] parts = choice.split("/");
             switch (parts[0]) {
                 case "ns":
-                    Operations.enrollStudent(parts);
+                    Operations.createAndAssignStudent(parts);
                     break;
                 case "gs":
                     Operations.graduateStudent(parts);
@@ -31,10 +31,10 @@ public class FacultyOperations {
                 case "b":
                     return;
                 default:
-                    System.out.println("Invalid choice. Do you want to try again? y/n");
+                    System.out.println("Invalid choice. Try again y/n");
                     String decision = input.nextLine().trim().toLowerCase();
                     if (!decision.equals("y")) {
-                        System.out.println("Going back");
+                        System.out.println("Go back");
                         choice = "b";
                     }
             }

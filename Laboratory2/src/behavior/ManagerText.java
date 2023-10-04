@@ -9,7 +9,6 @@ public class ManagerText {
         System.out.println("What do you want to do?");
         System.out.println("g - General operations");
         System.out.println("f - Faculty operations");
-        System.out.println("s - Student operations");
         System.out.println();
         System.out.println("q - Quit program");
         System.out.println();
@@ -28,7 +27,7 @@ public class ManagerText {
     public static void printFacultyOperation(){
         System.out.println("Faculty operations");
         System.out.println("What do you want to do?");
-        System.out.println("ns/<faculty abbreviation>/<first name>/<last name>/<email>/<day>/<month>/<year> - enroll a new student");
+        System.out.println("ns/<faculty abbreviation>/<first name>/<last name>/<email>/<enrollmentDate>/<dateOfBirth> - enroll a new student");
         System.out.println("gs/<email> - graduate student");
         System.out.println("ds/<faculty abbreviation> - display enrolled students");
         System.out.println("dg/<faculty abbreviation> - display graduated students");

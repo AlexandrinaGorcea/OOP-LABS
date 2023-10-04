@@ -29,7 +29,7 @@ public class GeneralOperations {
                 case "b":
                     return;
                 default:
-                    System.out.println("Invalid choice. Do you want to try again? y/n");
+                    System.out.println("Invalid choice. Please select a valid option. y/n");
                     String decision = input.nextLine().trim().toLowerCase();
                     if (!decision.equals("y")) {
                         System.out.println("Going back");

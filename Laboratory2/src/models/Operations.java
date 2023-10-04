@@ -9,26 +9,29 @@ import java.util.List;
         private static final List<Student> students = Student.getStudentsList();
         private static final List<Faculty> faculties = Faculty.getFacultyList();
 
-        public static void enrollStudent(String[] commands) throws ParseException {
+        public static void createAndAssignStudent(String[] commands) throws ParseException {
             if (commands.length == 6) {
+
                 String facultyAbbreviation = commands[1];
                 String studentFirstName = commands[2];
                 String studentLastName = commands[3];
                 String email = commands[4];
                 Date enrollmentDate = new SimpleDateFormat("dd.MM.yyyy").parse(commands[5]);
                 Date dateOfBirth = new SimpleDateFormat("dd.MM.yyyy").parse(commands[6]);
+
                 Faculty faculty = Faculty.findFacultyByAbbreviation(faculties, facultyAbbreviation);
+
                 if (faculty != null) {
                     Student student = new Student(studentFirstName, studentLastName, email, enrollmentDate, dateOfBirth, facultyAbbreviation);
                     Student.addStudent(student);
                     student.connectToFaculty(faculty);
                     faculty.addStudent(student);
-                    System.out.println("New student enrolled.");
+                    System.out.println("New student created and assigned to a faculty");
                 } else {
                     System.out.println("Faculty not found for abbreviation: '" + facultyAbbreviation);
                 }
             } else {
-                System.out.println("Invalid input");
+                System.out.println("Invalid input. Please select a valid option.");
             }
         }
 
@@ -42,9 +45,9 @@ import java.util.List;
                         return;
                     }
                 }
-                System.out.println("This student " + email + " not found");
+                System.out.println("This student " + email + "is not found");
             } else {
-                System.out.println("Invalid input");
+                System.out.println("Invalid input. Please select a valid option.");
             }
         }
 
@@ -60,7 +63,7 @@ import java.util.List;
                 }
                 System.out.println("Student with email " + email + " doesn't belong to faculty " + facultyAbbreviation);
             } else {
-                System.out.println("Invalid input");
+                System.out.println("Invalid input. Please select a valid option.");
             }
         }
 
@@ -73,28 +76,28 @@ import java.util.List;
                 Faculty.addFaculty(faculty);
                 System.out.println("New Faculty create");
             } else {
-                System.out.println("Invalid input");
+                System.out.println("Invalid input. Please select a valid option.");
             }
         }
 
         public static void searchStudent(String[] commands) {
             if (commands.length == 2) {
                 String email = commands[1];
-                boolean studentFound = false;
+                boolean foundStudent = false;
                 for (Student student : students) {
                     if (student.getEmail().equals(email)) {
                         System.out.println("Student found:");
                         System.out.println(student.getFirstName() + " " + student.getLastName());
                         System.out.println("Belongs to faculty: " + student.getFacultyAbbreviation());
-                        studentFound = true;
+                        foundStudent = true;
                         break;
                     }
                 }
-                if (!studentFound) {
+                if (!foundStudent) {
                     System.out.println("Student with email " + email + " not found.");
                 }
             } else {
-                System.out.println("Invalid input for searching a student. Please follow the format and try again");
+                System.out.println("Invalid input. Please select a valid option.");
             }
 
         }

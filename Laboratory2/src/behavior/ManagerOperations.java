@@ -32,7 +32,7 @@ public class ManagerOperations {
                     break;
                 case "q":
                     System.out.println("Quitting the program");
-                    return; // Exit the program when 'q' is chosen.
+                    return;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
             }
