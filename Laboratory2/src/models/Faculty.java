@@ -1,7 +1,5 @@
 package models;
 
-import models.StudyField;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +39,7 @@ public class Faculty {
     public void addStudent(Student student) {
         students.add(student);
     }
-    public static Faculty findFacultyByAbbreviation(List<Faculty> faculties, String abbreviation) {
+    public static Faculty findFacultyByAbbrev(List<Faculty> faculties, String abbreviation) {
         for (Faculty faculty : faculties) {
             if (faculty.getAbbreviation().equals(abbreviation)) {
                 return faculty;

@@ -1,9 +1,8 @@
 package behavior;
 
+import models.Operations;
 import java.text.ParseException;
 import java.util.Scanner;
-
-import models.Operations;
 
 public class GeneralOperations {
     public static void generalOperations(Scanner input) throws ParseException {
@@ -29,12 +28,7 @@ public class GeneralOperations {
                 case "b":
                     return;
                 default:
-                    System.out.println("Invalid choice. Please select a valid option. y/n");
-                    String decision = input.nextLine().trim().toLowerCase();
-                    if (!decision.equals("y")) {
-                        System.out.println("Going back");
-                        choice = "b";
-                    }
+                    System.out.println("Invalid choice. Please select a valid option.");
             }
         }
     }

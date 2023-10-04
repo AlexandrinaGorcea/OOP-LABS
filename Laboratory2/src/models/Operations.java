@@ -19,7 +19,7 @@ import java.util.List;
                 Date enrollmentDate = new SimpleDateFormat("dd.MM.yyyy").parse(commands[5]);
                 Date dateOfBirth = new SimpleDateFormat("dd.MM.yyyy").parse(commands[6]);
 
-                Faculty faculty = Faculty.findFacultyByAbbreviation(faculties, facultyAbbreviation);
+                Faculty faculty = Faculty.findFacultyByAbbrev(faculties, facultyAbbreviation);
 
                 if (faculty != null) {
                     Student student = new Student(studentFirstName, studentLastName, email, enrollmentDate, dateOfBirth, facultyAbbreviation);
@@ -28,7 +28,7 @@ import java.util.List;
                     faculty.addStudent(student);
                     System.out.println("New student created and assigned to a faculty");
                 } else {
-                    System.out.println("Faculty not found for abbreviation: '" + facultyAbbreviation);
+                    System.out.println("Faculty not found by abbreviation: '" + facultyAbbreviation);
                 }
             } else {
                 System.out.println("Invalid input. Please select a valid option.");

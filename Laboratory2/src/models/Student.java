@@ -34,27 +34,7 @@ public class Student {
     }
 
     public String getEmail(){
-
         return email;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public Date getEnrollmentDate() {
-        return enrollmentDate;
     }
     public static void addStudent(Student student) {
         studentsList.add(student);

@@ -31,12 +31,7 @@ public class FacultyOperations {
                 case "b":
                     return;
                 default:
-                    System.out.println("Invalid choice. Try again y/n");
-                    String decision = input.nextLine().trim().toLowerCase();
-                    if (!decision.equals("y")) {
-                        System.out.println("Go back");
-                        choice = "b";
-                    }
+                    System.out.println("Invalid choice. Please select a valid option.");
             }
         }
     }

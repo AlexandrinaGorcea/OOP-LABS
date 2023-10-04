@@ -1,9 +1,6 @@
 package behavior;
 
-import behavior.FacultyOperations;
-import behavior.GeneralOperations;
 import models.Operations;
-
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -18,7 +15,7 @@ public class ManagerOperations {
 
 
     public void run() throws ParseException {
-        System.out.println("WELCOME TO THE STUDENT MANAGEMENT SYSTEM !");
+        System.out.println("Welcome to TUM's student management system!");
         while (true) {
             displayMainMenu();
             String choice = " ";
@@ -31,7 +28,7 @@ public class ManagerOperations {
                     FacultyOperations.facultyOperations(scanner);
                     break;
                 case "q":
-                    System.out.println("Quitting the program");
+                    System.out.println("Quit the program");
                     return;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
@@ -41,9 +38,11 @@ public class ManagerOperations {
 
     private void displayMainMenu() {
         System.out.println("\nMAIN MENU:");
-        System.out.println("g - General Operations");
-        System.out.println("f - Faculty Operations");
-        System.out.println("q - Quit");
+        System.out.println("""
+        g - General Operations
+        f - Faculty Operations
+        q - Quit
+        """);
     }
 
     private String getUserChoice() {
