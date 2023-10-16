@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class ManagerOperations {
     private Operations operations;
     private Scanner scanner;
