@@ -1,11 +1,10 @@
 package behavior;
 
 import models.Operations;
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class GeneralOperations {
-    public static void generalOperations(Scanner input) throws ParseException {
+    public static void generalOperations(Scanner input, Operations operations) {
         String choice = "";
         while (!choice.equals("b")) {
             ManagerText.printGeneralOperation();
@@ -13,16 +12,24 @@ public class GeneralOperations {
             String[] parts = choice.split("/");
             switch (parts[0]) {
                 case "nf":
-                    Operations.newFaculty(parts);
+                    if (parts.length == 4) {
+                        operations.newFaculty(parts[1], parts[2], parts[3]);
+                    } else {
+                        System.out.println("Invalid input. Please select a valid option.");
+                    }
                     break;
                 case "ss":
-                    Operations.searchStudent(parts);
+                    if (parts.length == 2) {
+                        operations.searchStudent(parts[1]);
+                    } else {
+                        System.out.println("Invalid input. Please select a valid option.");
+                    }
                     break;
                 case "df":
                     if (parts.length > 1) {
-                        Operations.displayFacultiesByField(parts);
+                        operations.displayFacultiesByField(parts[1]);
                     } else {
-                        Operations.displayAllFaculties(parts);
+                        operations.displayAllFaculties();
                     }
                     break;
                 case "b":

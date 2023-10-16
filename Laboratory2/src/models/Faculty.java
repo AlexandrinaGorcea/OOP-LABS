@@ -8,8 +8,6 @@ public class Faculty {
     private final String abbreviation;
     private List<Student> students;
     private final StudyField studyField;
-    private static final List<Faculty> facultyList = new ArrayList<>();
-
 
     public Faculty(String name, String abbreviation, StudyField studyField) {
         this.name = name;
@@ -30,21 +28,11 @@ public class Faculty {
         return studyField;
     }
 
-    public static List<Faculty> getFacultyList() {
-        return facultyList;
+    public List<Student> getStudents() {
+        return students;
     }
-    public static void addFaculty(Faculty faculty) {
-        facultyList.add(faculty);
-    }
+
     public void addStudent(Student student) {
         students.add(student);
-    }
-    public static Faculty findFacultyByAbbrev(List<Faculty> faculties, String abbreviation) {
-        for (Faculty faculty : faculties) {
-            if (faculty.getAbbreviation().equals(abbreviation)) {
-                return faculty;
-            }
-        }
-        return null;
     }
 }

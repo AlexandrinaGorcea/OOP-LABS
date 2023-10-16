@@ -10,9 +10,8 @@ public class Student {
     private String email;
     private final Date enrollmentDate;
     private final Date dateOfBirth;
-    private  Boolean graduated;
+    private Boolean graduated;
     private String facultyAbbreviation;
-    private static final List<Student> studentsList = new ArrayList<>();
 
     public Student(String firstName, String lastName, String email, Date enrollmentDate, Date dateOfBirth, String isGraduated){
         this.firstName = firstName;
@@ -24,39 +23,35 @@ public class Student {
     }
 
     public String getFirstName() {
-
         return firstName;
     }
 
     public String getLastName() {
-
         return lastName;
     }
 
     public String getEmail(){
         return email;
     }
-    public static void addStudent(Student student) {
-        studentsList.add(student);
-    }
+
     public Boolean isGraduated() {
         return graduated;
     }
-    public static List<Student> getStudentsList() {
-        return studentsList;
-    }
+
+
     public void connectToFaculty(Faculty faculty) {
         faculty.addStudent(this);
     }
+
     public String getFacultyAbbreviation() {
         return facultyAbbreviation;
     }
+
     public void setGraduated(boolean graduated) {
         this.graduated = graduated;
     }
 
     public void graduate() {
         this.graduated = true;
-
     }
 }
