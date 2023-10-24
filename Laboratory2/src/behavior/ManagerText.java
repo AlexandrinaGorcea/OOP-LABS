@@ -40,7 +40,7 @@ public class ManagerText {
         gs/<email> - graduate student
         ds/<faculty abbreviation> - display enrolled students
         dg/<faculty abbreviation> - display graduated students
-        bf/<faculty abbreviation>/<email> - check if a student belongs to faculty
+        is/<faculty abbreviation>/<email> - check if a student belongs to faculty
         
         b - Back
         

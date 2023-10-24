@@ -30,7 +30,7 @@ public class ManagerOperations {
                 case "g":
                     GeneralOperations.generalOperations(scanner, operations);
                     break;
-                case "f":
+               case "f":
                     FacultyOperations.facultyOperations(scanner, operations);
                     break;
                 case "q":
@@ -45,6 +45,7 @@ public class ManagerOperations {
     private void displayMainMenu() {
         System.out.println("\nMAIN MENU:");
         System.out.println("""
+        What do you want to do?
         g - General Operations
         f - Faculty Operations
         q - Quit

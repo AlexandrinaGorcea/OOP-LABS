@@ -13,8 +13,8 @@ public class FacultyOperations {
             String[] parts = choice.split("/");
             switch (parts[0]) {
                 case "ns":
-                    if (parts.length == 8) {
-                        operations.createAndAssignStudent(parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], parts[7]);
+                    if (parts.length == 7) {
+                        operations.createAndAssignStudent(parts[1], parts[2], parts[3], parts[4], parts[5], parts[6], null);
                     } else {
                         System.out.println("Invalid input. Please select a valid option.");
                     }

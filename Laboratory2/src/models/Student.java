@@ -54,4 +54,5 @@ public class Student {
     public void graduate() {
         this.graduated = true;
     }
+
 }

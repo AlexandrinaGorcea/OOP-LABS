@@ -47,7 +47,12 @@ public class Operations {
 
     public void isStudentBelongToFaculty(String facultyAbbreviation, String email) {
         for (Student student : students) {
-            if (student.getEmail().equals(email) && student.getFacultyAbbreviation().equals(facultyAbbreviation)) {
+            String studentFacultyAbbreviation = student.getFacultyAbbreviation();
+            if (studentFacultyAbbreviation == null) {
+                System.out.println("Student with email " + student.getEmail() + " has null faculty abbreviation");
+                continue;
+            }
+            if (student.getEmail().equals(email) && studentFacultyAbbreviation.equals(facultyAbbreviation)) {
                 System.out.println("Student with email " + email + " belongs to faculty " + facultyAbbreviation);
                 return;
             }
@@ -100,4 +105,7 @@ public class Operations {
             }
         }
     }
+
+
+
 }
