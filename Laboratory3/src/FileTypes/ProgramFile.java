@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class ProgramFile extends File {
+public class ProgramFile extends FFile {
     private int lineCount;
     private int classCount;
     private int methodCount;

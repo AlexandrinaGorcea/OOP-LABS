@@ -7,14 +7,14 @@ import date.FormatOfTheTime;
 
 
 
-public class File {
+public class FFile {
     protected String directoryPath;
     protected String fileName;
     protected String extension;
     protected long createdDate;
     protected long updatedDate;
 
-    public File(String directoryPath, String fileName, long updatedDate) {
+    public FFile(String directoryPath, String fileName, long updatedDate) {
         this.fileName = fileName;
         this.extension = fileName.substring(fileName.lastIndexOf('.') + 1);
         this.directoryPath = directoryPath;
@@ -25,6 +25,10 @@ public class File {
 
     public long getUpdatedDate(){
         return updatedDate;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 
     public void setFileTimes(){
@@ -45,7 +49,7 @@ public class File {
         System.out.println("Last modified time: " + FormatOfTheTime.formatTimestamp(this.updatedDate));
     }
 
-    public static File createFile(String path, String fileName, long updatedDate){
+    public static FFile createFile(String path, String fileName, long updatedDate){
         String extension = getExtensionOfTheFile(fileName);
         switch (extension){
             case "png":
@@ -57,7 +61,7 @@ public class File {
             case "py":
                 return new CodeFile(path, fileName, updatedDate);
             default:
-                return new File(path, fileName, updatedDate);
+                return new FFile(path, fileName, updatedDate);
         }
     }
 

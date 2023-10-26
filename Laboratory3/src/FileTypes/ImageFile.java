@@ -4,7 +4,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class ImageFile extends File {
+public class ImageFile extends FFile {
     private int width;
     private int height;
 

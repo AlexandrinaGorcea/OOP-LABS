@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TextFile extends File {
+public class TextFile extends FFile {
     private int lineCount;
     private int wordCount;
     private int charCount;
