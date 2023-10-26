@@ -1,5 +1,3 @@
-package Laboratory3;
-
 import java.io.IOException;
 
 public class Main {
