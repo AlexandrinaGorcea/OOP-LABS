@@ -59,7 +59,7 @@ public class FFile {
                 return new TextFile(path, fileName, updatedDate);
             case "java":
             case "py":
-                return new CodeFile(path, fileName, updatedDate);
+                return new ProgramFile(path, fileName, updatedDate);
             default:
                 return new FFile(path, fileName, updatedDate);
         }
