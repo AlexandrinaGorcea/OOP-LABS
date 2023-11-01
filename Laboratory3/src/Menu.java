@@ -1,38 +1,41 @@
 import java.io.IOException;
 import java.util.Scanner;
-import FileHandler.FileHandler;
-import FileTypes.FFile;
+import DocumentManagement.DocumentManagement;
 
 public class Menu {
     public void accessMenu() throws IOException {
-        FileHandler fileHandler = new FileHandler();
-
+        DocumentManagement document = new DocumentManagement(); // Create an instance of Document
         Scanner input = new Scanner(System.in);
-
         String choice = "";
+
         System.out.println("Welcome to the File Management system:");
 
         while (!choice.equals("q")) {
             System.out.println();
-            System.out.println("""
-            info filename  - find information about the 'filename'
-            """);
-            System.out.println();
+            System.out.println("commit - update snapshot time");
+            System.out.println("info filename - find information about the 'filename'");
+            System.out.println("status - display all the changes in the files");
             System.out.println("q - to quit the program");
             System.out.println();
+
             choice = input.nextLine().toLowerCase();
+
             switch (choice) {
+                case "commit":
+                    document.commit(); // Update snapshot time
+                    break;
+                case "status":
+                    document.status("rootFolderPath"); // Display all the changes in the files
+                    break;
                 default:
                     if (choice.startsWith("info")) {
-                        // Extract filename from the "info<filename>" command
                         String filename = choice.substring(5).trim();
-                        FFile file = fileHandler.getFile(filename);
-                        if (file != null) {
-                            file.printInfo();
+                        if (!filename.isEmpty()) {
+                            document.info(filename); // Display information about the file
                         } else {
-                            System.out.println("File not found: " + filename);
+                            System.out.println("Please enter a filename.");
                         }
-                    } else if (choice.equals("q")){
+                    } else if (choice.equals("q")) {
                         System.out.println("Quiting the program");
                         input.close();
                         break;
