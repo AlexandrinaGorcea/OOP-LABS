@@ -49,7 +49,7 @@ public class DocumentManagement {
 
     private long loadLastSnapshotTime() {
         try {
-            File file = new File("Laboratory2/last_snapshot_time.txt");
+            File file = new File("Laboratory3/last_snapshot_time.txt");
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 return Long.parseLong(reader.readLine());
@@ -62,7 +62,7 @@ public class DocumentManagement {
 
     private void saveLastSnapshotTime(long lastSnapshotTime) {
         try {
-            File file = new File("Laboratory2/last_snapshot_time.txt");
+            File file = new File("Laboratory3/last_snapshot_time.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
             writer.write(Long.toString(lastSnapshotTime));
             writer.close();
@@ -72,7 +72,7 @@ public class DocumentManagement {
     }
 
     public void info(String filename) {
-        Path filePath = Paths.get("Laboratory2/files", filename);
+        Path filePath = Paths.get("Laboratory3/Files", filename);
         if (Files.exists(filePath)) {
             try {
                 BasicFileAttributes attributes = Files.readAttributes(filePath, BasicFileAttributes.class);

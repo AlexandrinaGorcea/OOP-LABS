@@ -1,41 +1,43 @@
+import DocumentManagement.*;
+
 import java.io.IOException;
 import java.util.Scanner;
-import DocumentManagement.DocumentManagement;
 
 public class Menu {
-    public void accessMenu() throws IOException {
-        DocumentManagement document = new DocumentManagement(); // Create an instance of Document
-        Scanner input = new Scanner(System.in);
-        String choice = "";
+    public static void accessMenu() throws IOException {
+        DocumentManagement document = new DocumentManagement();
 
-        System.out.println("Welcome to the File Management system:");
+        Scanner input = new Scanner(System.in);
+
+        String choice = "";
+        System.out.println();
+        System.out.println();
+        System.out.println("Welcome to the Document Change Detector system:");
+        document.displayLastSnapshotTime();
 
         while (!choice.equals("q")) {
             System.out.println();
+            System.out.println();
             System.out.println("commit - update snapshot time");
-            System.out.println("info filename - find information about the 'filename'");
+            System.out.println("info type/filename  - find information about the 'filename' (type is whether Text, Images or Code)");
             System.out.println("status - display all the changes in the files");
+            System.out.println();
             System.out.println("q - to quit the program");
             System.out.println();
-
             choice = input.nextLine().toLowerCase();
-
             switch (choice) {
                 case "commit":
-                    document.commit(); // Update snapshot time
+                    document.commit();
                     break;
                 case "status":
-                    document.status("rootFolderPath"); // Display all the changes in the files
+                    document.status("Laboratory2/files");
                     break;
                 default:
                     if (choice.startsWith("info")) {
+                        // Extract filename from the "info<filename>" command
                         String filename = choice.substring(5).trim();
-                        if (!filename.isEmpty()) {
-                            document.info(filename); // Display information about the file
-                        } else {
-                            System.out.println("Please enter a filename.");
-                        }
-                    } else if (choice.equals("q")) {
+                        document.info(filename);
+                    } else if (choice.equals("q")){
                         System.out.println("Quiting the program");
                         input.close();
                         break;
