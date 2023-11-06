@@ -30,7 +30,7 @@ public class Menu {
                     document.commit();
                     break;
                 case "status":
-                    document.status("Laboratory2/files");
+                    document.status("Laboratory3/Files");
                     break;
                 default:
                     if (choice.startsWith("info")) {

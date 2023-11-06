@@ -24,7 +24,7 @@ public class DocumentManagement {
 
     public void commit() {
         lastSnapshotTime = System.currentTimeMillis();
-        saveLastSnapshotTime(lastSnapshotTime);
+        saveLastSnapshotTime();
         System.out.println("Snapshot time updated to: " + dateFormat.format(lastSnapshotTime));
     }
 
@@ -52,19 +52,25 @@ public class DocumentManagement {
             File file = new File("Laboratory3/last_snapshot_time.txt");
             if (file.exists()) {
                 BufferedReader reader = new BufferedReader(new FileReader(file));
-                return Long.parseLong(reader.readLine());
+                String line = reader.readLine();
+                if (line != null) {
+                    return Long.parseLong(line);
+                }
             }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return 0;
     }
 
-    private void saveLastSnapshotTime(long lastSnapshotTime) {
+    private void saveLastSnapshotTime() {
         try {
             File file = new File("Laboratory3/last_snapshot_time.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write(Long.toString(lastSnapshotTime));
+            long currentTime = System.currentTimeMillis();
+            writer.write(Long.toString(currentTime));
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,10 +82,10 @@ public class DocumentManagement {
         if (Files.exists(filePath)) {
             try {
                 BasicFileAttributes attributes = Files.readAttributes(filePath, BasicFileAttributes.class);
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 System.out.println("File Name: " + filePath.getFileName());
                 System.out.println("Created: " + dateFormat.format(new Date(attributes.creationTime().toMillis())));
                 System.out.println("Last Modified: " + dateFormat.format(new Date(attributes.lastModifiedTime().toMillis())));
+
 
                 if (filename.endsWith(".txt")) {
                     // Display text file information
@@ -94,7 +100,7 @@ public class DocumentManagement {
                     System.out.println("File type not supported for additional information.");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Error accessing file information: " + e.getMessage());
             }
         } else {
             System.out.println("File not found: " + filename);
