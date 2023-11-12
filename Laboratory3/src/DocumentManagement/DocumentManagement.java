@@ -25,7 +25,7 @@ public class DocumentManagement {
     public void commit() {
         lastSnapshotTime = System.currentTimeMillis();
         saveLastSnapshotTime();
-        System.out.println("Snapshot time updated to: " + dateFormat.format(lastSnapshotTime));
+        System.out.println("Snapshot time updated to: " + dateFormat.format(new Date(lastSnapshotTime)));
     }
 
     public void status(String rootFolderPath) throws IOException {
@@ -86,7 +86,6 @@ public class DocumentManagement {
                 System.out.println("Created: " + dateFormat.format(new Date(attributes.creationTime().toMillis())));
                 System.out.println("Last Modified: " + dateFormat.format(new Date(attributes.lastModifiedTime().toMillis())));
 
-
                 if (filename.endsWith(".txt")) {
                     // Display text file information
                     displayTextFileInfo(filePath);
@@ -140,35 +139,45 @@ public class DocumentManagement {
     }
 
     private void displayCodeFileInfo(Path filePath) {
-        try {
-            List<String> lines = Files.readAllLines(filePath);
-            int lineCount = lines.size();
-            int methodCount = countMethods(lines);
-
-            System.out.println("Line Count: " + lineCount);
-            System.out.println("Method Count: " + methodCount);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        int methodCount = countMethods(filePath);
+        System.out.println("Method Count: " + methodCount);
     }
 
-    private int countMethods(List<String> lines) {
+    private int countMethods(Path filePath) {
         int methodCount = 0;
         boolean insideMethod = false;
-        Pattern methodPattern = Pattern.compile(".*(\\b(public|private|protected)\\b)?.*\\bvoid\\s+(\\w+)\\s*\\(.*");
+        String fileName = filePath.getFileName().toString();
+        Pattern methodPattern;
 
-        for (String line : lines) {
-            if (!insideMethod) {
-                Matcher matcher = methodPattern.matcher(line);
-                if (matcher.matches()) {
-                    methodCount++;
-                    insideMethod = true;
+        if (fileName.endsWith(".java")) {
+            // Java method pattern
+            methodPattern = Pattern.compile(".*(\\b(public|private|protected)\\b)?.*\\bvoid\\s+(\\w+)\\s*\\(.*");
+        } else if (fileName.endsWith(".py")) {
+            // Python method pattern
+            methodPattern = Pattern.compile("def\\s+(\\w+)\\(.*\\):");
+        } else {
+            return 0; // Unsupported file type
+        }
+
+        try {
+            List<String> lines = Files.readAllLines(filePath);
+
+            for (String line : lines) {
+                if (!insideMethod) {
+                    Matcher matcher = methodPattern.matcher(line);
+                    if (matcher.matches()) {
+                        methodCount++;
+                        insideMethod = true;
+                    }
+                } else if (line.trim().isEmpty()) {
+                    insideMethod = false;
                 }
-            } else if (line.trim().isEmpty()) {
-                insideMethod = false;
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return methodCount;
     }
+
 }
