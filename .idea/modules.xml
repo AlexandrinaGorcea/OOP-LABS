@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab4.LinkedList.Stack/Lab4.LinkedList.Stack.iml" filepath="$PROJECT_DIR$/Lab4.LinkedList.Stack/Lab4.LinkedList.Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratory1/Laboratory1.iml" filepath="$PROJECT_DIR$/Laboratory1/Laboratory1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratory2/Laboratory2.iml" filepath="$PROJECT_DIR$/Laboratory2/Laboratory2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratory3/Laboratory3.iml" filepath="$PROJECT_DIR$/Laboratory3/Laboratory3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Laboratory4Q/Laboratory4Q.iml" filepath="$PROJECT_DIR$/Laboratory4Q/Laboratory4Q.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Laboratory4S/Laboratory4S.iml" filepath="$PROJECT_DIR$/Laboratory4S/Laboratory4S.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOP-LABS.iml" filepath="$PROJECT_DIR$/OOP-LABS.iml" />
     </modules>
   </component>
