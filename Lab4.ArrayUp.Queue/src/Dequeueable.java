@@ -1,0 +1,3 @@
+interface Dequeueable {
+    int dequeue();
+}

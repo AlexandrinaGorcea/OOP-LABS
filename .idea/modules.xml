@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayUp.Queue/Lab4.ArrayUp.Queue.iml" filepath="$PROJECT_DIR$/Lab4.ArrayUp.Queue/Lab4.ArrayUp.Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayUp.Stack/Lab4.ArrayUp.Stack.iml" filepath="$PROJECT_DIR$/Lab4.ArrayUp.Stack/Lab4.ArrayUp.Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.LinkedList.Queue/Lab4.LinkedList.Queue.iml" filepath="$PROJECT_DIR$/Lab4.LinkedList.Queue/Lab4.LinkedList.Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.LinkedList.Stack/Lab4.LinkedList.Stack.iml" filepath="$PROJECT_DIR$/Lab4.LinkedList.Stack/Lab4.LinkedList.Stack.iml" />
