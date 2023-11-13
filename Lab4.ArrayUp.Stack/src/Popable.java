@@ -1,0 +1,3 @@
+interface Popable {
+    int pop();
+}
