@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayDown.Queue/Lab4.ArrayDown.Queue.iml" filepath="$PROJECT_DIR$/Lab4.ArrayDown.Queue/Lab4.ArrayDown.Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayDown.Stack/Lab4.ArrayDown.Stack.iml" filepath="$PROJECT_DIR$/Lab4.ArrayDown.Stack/Lab4.ArrayDown.Stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayUp.Queue/Lab4.ArrayUp.Queue.iml" filepath="$PROJECT_DIR$/Lab4.ArrayUp.Queue/Lab4.ArrayUp.Queue.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lab4.ArrayUp.Stack/Lab4.ArrayUp.Stack.iml" filepath="$PROJECT_DIR$/Lab4.ArrayUp.Stack/Lab4.ArrayUp.Stack.iml" />
@@ -10,6 +11,7 @@
       <module fileurl="file://$PROJECT_DIR$/Laboratory1/Laboratory1.iml" filepath="$PROJECT_DIR$/Laboratory1/Laboratory1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratory2/Laboratory2.iml" filepath="$PROJECT_DIR$/Laboratory2/Laboratory2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Laboratory3/Laboratory3.iml" filepath="$PROJECT_DIR$/Laboratory3/Laboratory3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Laboratory4/Laboratory4.iml" filepath="$PROJECT_DIR$/Laboratory4/Laboratory4.iml" />
       <module fileurl="file://$PROJECT_DIR$/OOP-LABS.iml" filepath="$PROJECT_DIR$/OOP-LABS.iml" />
     </modules>
   </component>

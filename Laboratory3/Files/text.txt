@@ -1,4 +1,5 @@
 hello, world!
+hi
 Hola.
 French – Bonjour.
 German – Hallo.
@@ -7,5 +8,4 @@ Thai – S̄wạs̄dī
 Swahili – Jambo.
 Hatian Creole – Bonjou.
 Italian – Ciao.
-
-hellooooo
+Russian-привет
