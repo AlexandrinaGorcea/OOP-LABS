@@ -1,3 +1,0 @@
-interface Dequeueable {
-    int dequeue();
-}
